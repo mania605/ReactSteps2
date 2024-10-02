@@ -1,7 +1,11 @@
+import Layout from '../common/Layout';
+
 export default function Contact() {
 	return (
 		<main className='contact'>
-			<h1>CONTACT</h1>
+			<Layout title={'CONTACT'}>
+				<p>Home Page contents come here.</p>
+			</Layout>
 		</main>
 	);
 }
