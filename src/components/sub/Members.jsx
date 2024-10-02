@@ -9,9 +9,7 @@ export default function Members() {
 					<h2>{memberData[0].name}</h2>
 					<p>{memberData[0].position}</p>
 				</div>
-				<div className='pic'>
-					<img src={'/' + memberData[0].pic} alt={memberData[0].name} />
-				</div>
+				<Pic className='pic' src={'/' + memberData[0].pic} />
 			</article>
 
 			<article className='memberListBox'>
