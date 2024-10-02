@@ -1,3 +1,4 @@
+import Layout from '../common/Layout';
 import Title from '../common/Layout';
 
 export default function Home() {
