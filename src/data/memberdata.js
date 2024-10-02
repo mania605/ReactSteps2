@@ -1,5 +1,5 @@
 export default [
-	{ name: 'David Choi', pic: 'divid.jpg', position: 'CEO' },
+	{ name: 'David Choi', pic: 'david.jpg', position: 'CEO' },
 	{ name: 'Paul Yoon', pic: 'paul.jpg', position: 'CFO' },
 	{ name: 'Emily Chung', pic: 'emily.jpg', position: 'CTO' },
 	{ name: 'Peter Smith', pic: 'peter.jpg', position: 'UI Designer' },
