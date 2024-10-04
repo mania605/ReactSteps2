@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import Layout from '../common/Layout';
 import Pic from '../common/Pic';
 import useShortenText from '../../../hooks/useShortenText';
+import useCombineText from '../../../hooks/useCombineText';
 
 export default function Youtube() {
 	const shortenText = useShortenText(); //여기서만 호출 가능하지 fetch나 jsx구문 안쪽에서 호출 불가
 	console.log(shortenText);
+	useCombineText combineText = useCombineText();
 	const [Vids, setVids] = useState([]);
 
 	const fetchYoutube = () => {
@@ -33,7 +35,7 @@ export default function Youtube() {
 						<Pic className='thumb' src={vid.snippet.thumbnails.high.url} />
 						<h3>{shortenText(vid.snippet.title, 60)}</h3> {/* 제목을 60자로 줄이기 */}
 						<p>{shortenText(vid.snippet.description, 150)}</p> {/* 설명을 150자로 줄이기 */}
-						<span>{vid.snippet.publishedAt}</span>
+						<span>{combineText(vid.snippet.publishedAt.split('T')[0], '-', '.')}</span>
 					</article>
 				);
 			})}
