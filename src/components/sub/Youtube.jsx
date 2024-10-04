@@ -9,7 +9,6 @@ export default function Youtube() {
 	const [Vids, setVids] = useState([]);
 
 	const fetchYoutube = () => {
-		shortenText('David');
 		const api_key = import.meta.env.VITE_YOUTUBE_API;
 		const pid = 'PLHtvRFLN5v-W5bQjvyH8QTdQQhgflJ3nu';
 		const num = 10;
@@ -33,7 +32,7 @@ export default function Youtube() {
 					<article key={idx}>
 						<Pic className='thumb' src={vid.snippet.thumbnails.high.url} />
 						<h3>{shortenText(vid.snippet.title, 60)}</h3> {/* 제목을 60자로 줄이기 */}
-						<p>{shortenText(vid.snippet.description, 100)}</p> {/* 설명을 100자로 줄이기 */}
+						<p>{shortenText(vid.snippet.description, 150)}</p> {/* 설명을 150자로 줄이기 */}
 						<span>{vid.snippet.publishedAt}</span>
 					</article>
 				);

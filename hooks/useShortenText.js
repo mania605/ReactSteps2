@@ -39,7 +39,6 @@ use라는 이름의 커스텀 훅 자체를 핸들러함수 안쪽에서 호출�
 export default function useShortenText() {
 	// 문자와 자를 길이를 받아서 처리
 	return (text, len) => {
-		return text.len > let ? text.substr(0, len) + '...'; // 제한된 길이만큼 자르고 말줄임표 추가
-		}
-		return text; // 길이가 짧으면 그대로 반환
+		return text.length > len ? text.substr(0, len) + '...' : text; // 제한된 길이만큼 자르고 말줄임표 추가
 	};
+}
