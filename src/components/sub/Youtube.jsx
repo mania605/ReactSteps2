@@ -7,7 +7,8 @@ export default function Youtube() {
 	const minusNum = () => {
 		setNum(Num - 1);
 	};
-	//	console.log();
+
+	console.log(Num);
 
 	return (
 		<main className='youtube'>
