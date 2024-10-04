@@ -3,13 +3,15 @@ import Layout from '../common/Layout';
 import Pic from '../common/Pic';
 import useShortenText from '../../../hooks/useShortenText';
 import useCombineText from '../../../hooks/useCombineText';
+import { Link } from 'react-router-dom';
 
 export default function Youtube() {
-	const shortenText = useShortenText(); //여기서만 호출 가능하지 fetch나 jsx구문 안쪽에서 호출 불가
+	const shortenText = useShortenText();
 	const combineText = useCombineText();
 	const [Vids, setVids] = useState([]);
 
 	const fetchYoutube = () => {
+		shortenText('David');
 		const api_key = import.meta.env.VITE_YOUTUBE_API;
 		const pid = 'PLHtvRFLN5v-W5bQjvyH8QTdQQhgflJ3nu';
 		const num = 10;
@@ -22,6 +24,7 @@ export default function Youtube() {
 				setVids(json.items);
 			});
 	};
+
 	useEffect(() => {
 		fetchYoutube();
 	}, []);
@@ -31,9 +34,11 @@ export default function Youtube() {
 			{Vids.map((vid, idx) => {
 				return (
 					<article key={idx}>
-						<h3>{shortenText(vid.snippet.title, 60)}</h3> {/* 제목을 60자로 줄이기 */}
+						<h3>
+							<Link to={'/youtube/' + vid.id}>{shortenText(vid.snippet.title, 60)}</Link>
+						</h3>
 						<div className='txt'>
-							<p>{shortenText(vid.snippet.description, 150)}</p> {/* 설명을 150자로 줄이기 */}
+							<p>{shortenText(vid.snippet.description, 150)}</p>
 							<span>{combineText(vid.snippet.publishedAt.split('T')[0], '-', '.')}</span>
 						</div>
 						<Pic className='thumb' src={vid.snippet.thumbnails.high.url} />
