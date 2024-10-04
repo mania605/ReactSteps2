@@ -9,7 +9,7 @@
 
 		h3 {
 			width: 30%;
-			font: 200 2.2rem/1.2 'raleway';
+			font: 150 2.2rem/1.2 'raleway';
 			color: #111;
 		}
 		.txt {
@@ -31,6 +31,53 @@
 		.thumb {
 			width: 30%;
 			height: 10vw;
+		}
+	}
+}
+
+//미션  해당목록 반응형 처리
+//타블릿에서는  제목과 txt박스 가 가로로 한줄로 구현
+// 그밑에 이미지 배치하는 형태로 구현
+//모바일에서는 모루 세로한줄로 구현
+
+@media screen and (max-width: $tablet) {
+	article {
+		flex-direction: column; /* 세로 정렬 */
+	}
+
+	/* 제목과 텍스트는 가로로 배치 */
+	h3,
+	.txt {
+		width: 100%;
+		display: inline-block; /* 가로로 배치 */
+		text-align: left;
+	}
+
+	.thumb {
+		width: 100%;
+		height: auto; /* 이미지의 높이는 자동 */
+		margin-top: 20px; /* 이미지 상단에 간격 추가 */
+	}
+}
+
+@media screen and (max-width: $mobile) {
+	article {
+		align-items: center; /* 가운데 정렬 */
+
+		h3,
+		.txt,
+		.thumb {
+			width: 100%; /* 너비를 100%로 */
+			text-align: center; /* 텍스트 가운데 정렬 */
+		}
+
+		.txt {
+			margin-top: 20px;
+		}
+
+		.thumb {
+			height: auto; /* 이미지 높이 자동 조정 */
+			margin-top: 20px; /* 텍스트 상자 아래에 이미지가 오도록 간격 조정 */
 		}
 	}
 }
