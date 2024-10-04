@@ -20,7 +20,6 @@ export default function Youtube() {
 		fetch(url)
 			.then(data => data.json())
 			.then(json => {
-				console.log(json.items);
 				setVids(json.items);
 			});
 	};
