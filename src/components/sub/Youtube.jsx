@@ -6,8 +6,7 @@ import useCombineText from '../../../hooks/useCombineText';
 
 export default function Youtube() {
 	const shortenText = useShortenText(); //여기서만 호출 가능하지 fetch나 jsx구문 안쪽에서 호출 불가
-	console.log(shortenText);
-	useCombineText combineText = useCombineText();
+	const combineText = useCombineText();
 	const [Vids, setVids] = useState([]);
 
 	const fetchYoutube = () => {
