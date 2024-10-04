@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import Layout from '../common/Layout';
 import Pic from '../common/Pic';
-import useShorthenText from '../../../hooks/useShortenText';
+import useShortenText from '../../../hooks/useShortenText';
 
 export default function Youtube() {
-	const shorthenText = useShorthenText(); //여기서만 호출 가능하지 fetch나 jsx구문 안쪽에서 호룿ㄹ 불가
-	console.log(shorthenText);
+	const shortenText = useShortenText(); //여기서만 호출 가능하지 fetch나 jsx구문 안쪽에서 호출 불가
+	console.log(shortenText);
 	const [Vids, setVids] = useState([]);
 
 	const fetchYoutube = () => {
@@ -32,12 +32,8 @@ export default function Youtube() {
 				return (
 					<article key={idx}>
 						<Pic className='thumb' src={vid.snippet.thumbnails.high.url} />
-						<h3>{vid.snippet.title.length >= 60 ? vid.snippet.title.substr(0, 60) + '...' : vid.snippet.title}</h3>
-						<p>
-							{vid.snippet.description.length >> 100
-								? vid.snippet.description.substr(0, 100) + '...'
-								: vid.snippet.description}
-						</p>
+						<h3>{shortenText(vid.snippet.title, 60)}</h3> {/* 제목을 60자로 줄이기 */}
+						<p>{shortenText(vid.snippet.description, 100)}</p> {/* 설명을 100자로 줄이기 */}
 						<span>{vid.snippet.publishedAt}</span>
 					</article>
 				);
