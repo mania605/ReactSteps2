@@ -2,21 +2,22 @@ import { useState } from 'react';
 import Layout from '../common/Layout';
 
 export default function Youtube() {
-	const [Num, setNum] = useState(0);
+	const [Colors, setColors] = useState(['red', 'green', 'blue']);
 
-	const minusNum = () => {
-		setNum(Num - 1);
-	};
-
-	console.log(Num);
+	//console.log();
 
 	return (
-		<main className='youtube'>
-			<Layout title={'YOUTUBE'}>
-				<h2>Num</h2>
-				<button onClick={minusNum}>minus</button>
-				<button onClick={() => setNum(Num + 1)}>plus</button>
-			</Layout>
-		</main>
+		<Layout title={'YOUTUBE'}>
+			<ul>
+				{' '}
+				{Colors.map((color, idx) => {
+					return (
+						<li style={{ color: color }} key={idx}>
+							{color}
+						</li>
+					);
+				})}
+			</ul>
+		</Layout>
 	);
 }
