@@ -14,7 +14,7 @@ export default function Youtube() {
 	}, []);
 	useEffect(() => {
 		//의존성배열에 등록된 Num값이 변경될때마다 useEffect안쪽의 콜백함수 호출됨
-		console.log('Num값 변경될떄다마 호출');
+		console.log('Num값 변경될때마다 호출');
 	}, [Num]);
 
 	return (
