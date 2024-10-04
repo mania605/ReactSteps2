@@ -22,16 +22,28 @@ export default function Youtube() {
 
 	return (
 		<Layout title={'YOUTUBE'}>
-			<button onClick={() => setNum(Num + 1)}>Num변경</button>
+			<button onClick={() => setNum(Num + 1)}>Num 변경</button>
 			<h2>{Num}</h2>
 
-			{Vids.map((vid, idx) => {
-				return (
-					<article key={idx}>
-						<h3>{vid.snippet.title}</h3>
-					</article>
-				);
-			})}
+			<div className='youtube-grid'>
+				{Vids.map((vid, idx) => {
+					const snippet = vid.snippet;
+					const { title, thumbnails, description, publishedAt } = snippet;
+
+					return (
+						<article key={idx}>
+							<div className='pic'>
+								<img src={thumbnails.medium.url} alt={title} />
+							</div>
+							<div className='info'>
+								<h3>{title}</h3>
+								<p>{description}</p>
+								<small>{new Date(publishedAt).toLocaleDateString()}</small>
+							</div>
+						</article>
+					);
+				})}
+			</div>
 		</Layout>
 	);
 }
