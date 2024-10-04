@@ -2,6 +2,7 @@
 
 $tablet: 999px;
 $mobile: 599px;
+
 //common
 @import './common/reset';
 @import './common/header';
@@ -12,5 +13,6 @@ $mobile: 599px;
 @import './main/home';
 
 //sub
-@import './sub/members.scss';
-@import './sub/youtube.scss';
+@import './sub/members';
+@import './sub/youtube';
+@import './sub/youtubeDetail';
