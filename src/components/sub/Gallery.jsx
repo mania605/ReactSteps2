@@ -42,10 +42,7 @@ export default function Gallery() {
 				</section>
 			</Layout>
 
-			<Modal>
-				<div className='con'></div>
-				<button className='btnClose'>CLOSE</button>
-			</Modal>
+			<Modal>FLICKR IMAGE</Modal>
 		</>
 	);
 }
