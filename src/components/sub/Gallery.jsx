@@ -7,7 +7,7 @@ export default function Gallery() {
 
 	useEffect(() => {
 		const method = 'flickr.people.getPhotos';
-		const flicker_api = 'd0053a4bfac353553d2d0337fd052214'; //'import.meta.env.VITE_FLICKR_API';
+		const flickr_api = 'd0053a4bfac353553d2d0337fd052214'; //'import.meta.env.VITE_FLICKR_API';
 		const myID = '201491599@N03'; //'import.meta.env.VITE_FLICKR_ID';
 		const num = 10;
 		const url = `https://www.flickr.com/services/rest/?method=${method}&api_key=${flickr_api}&user_id=${myID}&per_page=${num}&nojsoncallback=1&format=json`;
@@ -23,7 +23,15 @@ export default function Gallery() {
 
 	return (
 		<Layout title={'GALLERY'}>
-			<p>Gallery Page contents come here.</p>
+			<section className='galleryList'>
+				{Flickr.map((data, idx) => {
+					return (
+						<artcle key={idx}>
+							<h3>{data.title}</h3>
+						</artcle>
+					);
+				})}
+			</section>
 		</Layout>
 	);
 }
