@@ -1,5 +1,5 @@
 import Layout from '../common/Layout';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function Contact() {
 	//순서1: 서버쪽에서 받아올 데이터를 담을 빈 배열 state공간및 함수 생성
@@ -27,6 +27,7 @@ export default function Contact() {
 		</Layout>
 	);
 }
+
 /*
 자가진단 항목
 1. useState를 이용해서 state에 값을 옮겨담고 state변경함수로 state값 변경처리
@@ -34,6 +35,4 @@ export default function Contact() {
 3. useState와 useEffect를 활용해서 서버 데이터 fetching처리후 state에 담기
 4. 커스텀훅 만드는 방법 (커스텀훅의 조건 및 호출 위치)
 5. 다이나믹 라우터를 이용해서  /youtube/:id를 활용해서 상세페이지에 특정 id값 전달하는 방법
-
-
 */
