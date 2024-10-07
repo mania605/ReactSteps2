@@ -53,12 +53,11 @@ export default function Gallery() {
 					})}
 				</section>
 			</Layout>
-			{/* 상태 변경함수를 전달받아서 이벤트 발생시 부모의 상태값을 변경해서 닫기 처리 */}
-			{ModalOpen && <Modal ModalOpen={ModalOpen}>FLICKR IMAGE</Modal>}
+
+			{ModalOpen && <Modal setModalOpen={setModalOpen}>FLICKR IMAGE</Modal>}
 		</>
 	);
 }
-
 /*
 부모에세 자식 컴포넌트에 상태변경함수를 전달해서 자식컴포넌트가 부모컴포넌트의 상태값 제어가능하게 처리
 
