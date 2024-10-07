@@ -44,11 +44,17 @@ export default function Gallery() {
 					})}
 				</section>
 			</Layout>
-			/* //ModalOpen상태값이 true일때만 Modal컴포넌트를 호출해서 출력*/
-			{ModalOpen && <Modal>FLICKR IMAGE</Modal>}
+			{/* 상태 변경함수를 전달받아서 이벤트 발생시 부모의 상태값을 변경해서 닫기 처리 */}
+			{ModalOpen && <Modal ModalOpen={ModalOpen}>FLICKR IMAGE</Modal>}
 		</>
 	);
 }
+
+/*
+부모에세 자식 컴포넌트에 상태변경함수를 전달해서 자식컴포넌트가 부모컴포넌트의 상태값 제어가능하게 처리
+
+*/
+
 /*
 아래만 알아도 React 70%에 해당하는 로직을 이해할 수 있음.
 
