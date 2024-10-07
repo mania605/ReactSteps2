@@ -42,7 +42,10 @@ export default function Gallery() {
 				</section>
 			</Layout>
 
-			<Modal>이미지 팝업</Modal>
+			<Modal>
+				<div className='con'></div>
+				<button className='btnClose'>CLOSE</button>
+			</Modal>
 		</>
 	);
 }
