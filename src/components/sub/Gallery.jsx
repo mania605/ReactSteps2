@@ -6,7 +6,6 @@ import Modal from '../common/modal';
 export default function Gallery() {
 	const [Flickr, setFlickr] = useState([]);
 	const [ModalOpen, setModalOpen] = useState(false); // 모달 표시 여부를 제어하는 상태
-	const [selectedImg, setSelectedImg] = useState(''); // 선택된 이미지의 URL
 
 	console.log(Flickr); //1. 외부데이터를 담을 빈 State공간 상태값과 State변경함수를 useState로부터 생성- []로 빈그릇만 만들어 놓는 것
 
@@ -26,18 +25,15 @@ export default function Gallery() {
 			});
 	}, []);
 
-	// 모달 열기 (이미지 선택 및 스크롤 비활성화)
-	const openModal = imgUrl => {
-		setModalOpen(true);
-		setSelectedImg(imgUrl);
-		document.body.style.overflow = 'hidden'; // 스크롤 비활성화
-	};
+	//	의존성 배열에 Moal Open 상태값을 연결해서 모달창이 열리고 닫힐때마다
+	// body요소의 스크롤바 기능 여부를 분기처리
+	//정리: 리액트는 HTML,JS작업방식처럼 직접적인 DOM을 제어하는 방식이 아닌 State의 변경에 따라 자동으로 기능이 구현되도록 처리되는 로직을 주로 사용
+	//위와 같이 state에 따라 UI의 기능 화면이 변경되는 로직의 패턴을 사용하면
+	//복잡한 대단위 프로젝트에서 state상태값만 관리하면 되겡 업무 채산성, 효율성이 높아짐.
 
-	// 모달 닫기 (스크롤 활성화)
-	const closeModal = () => {
-		setModalOpen(false);
-		document.body.style.overflow = 'auto'; // 스크롤 활성화
-	};
+	useEffect(() => {
+		document.body.style.overflow = ModalOpen ? 'hidden' : 'auto';
+	}, [ModalOpen]);
 
 	return (
 		<>
@@ -58,11 +54,7 @@ export default function Gallery() {
 				</section>
 			</Layout>
 			{/* 상태 변경함수를 전달받아서 이벤트 발생시 부모의 상태값을 변경해서 닫기 처리 */}
-			{ModalOpen && (
-				<Modal ModalOpen={ModalOpen} closeModal={closeModal} selectedImg={selectedImg}>
-					FLICKR IMAGE
-				</Modal>
-			)}
+			{ModalOpen && <Modal ModalOpen={ModalOpen}>FLICKR IMAGE</Modal>}
 		</>
 	);
 }
