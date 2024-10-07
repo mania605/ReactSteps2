@@ -7,8 +7,8 @@ export default function Gallery() {
 
 	useEffect(() => {
 		const method = 'flickr.people.getPhotos';
-		const flickr_api = 'd0053a4bfac353553d2d0337fd052214'; //'import.meta.env.VITE_FLICKR_API';
-		const myID = '201491599@N03'; //'import.meta.env.VITE_FLICKR_ID';
+		const flickr_api = import.meta.env.VITE_FLICKR_API; //'d0053a4bfac353553d2d0337fd052214'; //
+		const myID = import.meta.env.VITE_FLICKR_ID; //'201491599@N03'; //
 		const num = 10;
 		const url = `https://www.flickr.com/services/rest/?method=${method}&api_key=${flickr_api}&user_id=${myID}&per_page=${num}&nojsoncallback=1&format=json`;
 
