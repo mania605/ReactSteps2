@@ -5,6 +5,9 @@ import Modal from '../common/modal';
 
 export default function Gallery() {
 	const [Flickr, setFlickr] = useState([]);
+	const [ModalOpen, setModalOpen] = useState(false); // 모달 표시 여부를 제어하는 상태
+	const [modalImage, setModalImage] = useState(null); // 클릭한 이미지를 저장하는 상태
+
 	console.log(Flickr); //1. 외부데이터를 담을 빈 State공간 상태값과 State변경함수를 useState로부터 생성- []로 빈그릇만 만들어 놓는 것
 
 	useEffect(() => {
@@ -29,7 +32,7 @@ export default function Gallery() {
 				<section className='galleryList'>
 					{Flickr.map((data, idx) => {
 						return (
-							<article key={idx}>
+							<article key={idx} onClick={() => setModalOpen(true)}>
 								<Pic
 									src={`https://live.staticflickr.com/${data.server}/${data.id}_${data.secret}_z.jpg`}
 									className='pic'
@@ -41,8 +44,8 @@ export default function Gallery() {
 					})}
 				</section>
 			</Layout>
-
-			<Modal>FLICKR IMAGE</Modal>
+			/* //ModalOpen상태값이 true일때만 Modal컴포넌트를 호출해서 출력*/
+			{ModalOpen && <Modal>FLICKR IMAGE</Modal>}
 		</>
 	);
 }
