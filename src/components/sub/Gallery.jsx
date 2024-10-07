@@ -6,7 +6,6 @@ import Modal from '../common/modal';
 export default function Gallery() {
 	const [Flickr, setFlickr] = useState([]);
 	const [ModalOpen, setModalOpen] = useState(false); // 모달 표시 여부를 제어하는 상태
-	const [modalImage, setModalImage] = useState(null); // 클릭한 이미지를 저장하는 상태
 
 	console.log(Flickr); //1. 외부데이터를 담을 빈 State공간 상태값과 State변경함수를 useState로부터 생성- []로 빈그릇만 만들어 놓는 것
 
