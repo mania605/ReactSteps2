@@ -18,11 +18,20 @@ export default function Layout({ title, children }) {
 		<main className={isDetail ? 'detail' : title.toLowerCase()}>
 			<h1 ref={ref_title}>{title}</h1>
 
-			<MaskText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, ad?</MaskText>
+			<MaskText duration={1} delay={0} color={'#000'}>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, ad?
+			</MaskText>
+			<br />
 
-			<MaskText>Lorem ipsum dolor sit amet consectetur adipisicing.</MaskText>
+			<MaskText duration={0.6} delay={1} color={'#999'}>
+				Lorem ipsum dolor
+			</MaskText>
 
-			<motion.section initial={{ opacity: 0, y: 200 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 200, transition: { delay: 0 } }} transition={{ duration: 1, delay: 0.7, ease: 'linear' }}>
+			<motion.section
+				initial={{ opacity: 0, y: 200 }}
+				animate={{ opacity: 1, y: 0 }}
+				exit={{ opacity: 0, y: 200, transition: { delay: 0 } }}
+				transition={{ duration: 1, delay: 0.7, ease: 'linear' }}>
 				{children}
 			</motion.section>
 		</main>
