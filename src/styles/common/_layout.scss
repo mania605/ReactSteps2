@@ -11,6 +11,7 @@ main {
 		span {
 			opacity: 0;
 			transform: scale(3) rotate(220deg);
+			transform-origin: 200px 200px;
 		}
 	}
 	h1.on {
