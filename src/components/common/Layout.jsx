@@ -9,14 +9,13 @@ export default function Layout({ title, children }) {
 	const isDetail = pathname.includes('/youtube/');
 
 	useEffect(() => {
-		//훅 자체적으로 참조객체 요소 활성화 처리
-		splitText(ref_title, 0.1);
+		// 세 번째 파라미터로 지연 시간을 추가 (예: 1초 후에 모션 시작)
+		splitText(ref_title, 0.1, 1000); // 1000ms = 1초
 	}, []);
 
 	return (
 		<main className={isDetail ? 'detail' : title.toLowerCase()}>
 			<h1 ref={ref_title}>{title}</h1>
-
 			<section>{children}</section>
 		</main>
 	);
