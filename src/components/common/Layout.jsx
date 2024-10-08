@@ -13,7 +13,11 @@ export default function Layout({ title, children }) {
 
 	useEffect(() => {
 		splitText(ref_title, { interval: 0.1 });
-	}, []);
+	}, [splitText]);
+	//useEffect에 의존성 배열에 특정값을 등록하라고 뜨는 경우
+	//해당 컴포넌트 자체적을 자체적으로 제어되지 않는 요소가 useEffect안쪽에서 활용되고 이씅ㄹ 때 등록하라는 권고 사항 출력
+	//해결방법: 등록처리(잘못등록하면 재귀적 호출 되면서 무한호출 문제발생)
+	//무한호출시 해결방법: useMemo, useCallback등의 메모이제이션 훅을 이용해서 강제로 메모리에 등록 후 사용
 
 	return (
 		<main className={isDetail ? 'detail' : title.toLowerCase()}>
@@ -31,26 +35,6 @@ export default function Layout({ title, children }) {
 				style={{ marginTop: 50, fontSize: 80, fontFamily: 'raleway' }}>
 				Lorem ipsum dolor
 			</MaskText>
-
-			<h1 ref={ref_title}>{title}</h1>
-
-			<MaskBox
-				duration={1}
-				delay={0}
-				maskColor={'#000'}
-				style={{ width: '300px', height: '300px' }}>
-				<img src='https://via.placeholder.com/300' alt='Masked Image' />
-			</MaskBox>
-
-			<MaskBox
-				duration={1.5}
-				delay={0.5}
-				maskColor={'#333'}
-				style={{ width: '100%', height: '200px', backgroundColor: '#f4f4f4' }}>
-				<div style={{ padding: '20px' }}>
-					Masked Content with Background Color
-				</div>
-			</MaskBox>
 
 			<motion.section
 				initial={{ opacity: 0, y: 200 }}
