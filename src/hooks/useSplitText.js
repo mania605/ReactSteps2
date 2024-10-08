@@ -6,7 +6,7 @@ export default function useSplitText() {
 		let count = 0;
 
 		for (let letter of text) {
-			tags += `<span style='display:inline-block; transition-duration:0.5s; transition-delay:${count * interval}s'>${letter}</span>`;
+			tags += `<span style='display:inline-block; transition-duration:0.5s; transition-delay:${count * interval + delay}s'>${letter}</span>`;
 			count++;
 		}
 
