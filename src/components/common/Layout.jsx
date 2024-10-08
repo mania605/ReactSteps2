@@ -20,7 +20,7 @@ export default function Layout({ title, children }) {
 
 			<MaskText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, ad?</MaskText>
 
-			<motion.section initial={{ opacity: 0, y: 200 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 200, transition: { delay: 0 } }} transition={{ duration: 1, delay: 0.7 }}>
+			<motion.section initial={{ opacity: 0, y: 200 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 200, transition: { delay: 0 } }} transition={{ duration: 1, delay: 0.7, ease: 'linear' }}>
 				{children}
 			</motion.section>
 		</main>
