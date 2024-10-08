@@ -1,23 +1,9 @@
 import Layout from '../common/Layout';
 import memberData from '../../data/memberData';
 import Pic from '../common/Pic';
-import { useRef, useState } from 'react';
+import MaskBox from '../common/MaskBox';
 
 export default function Members() {
-	console.log('Member rendered!!');
-	const refEl = useRef(0);
-	const [Num, setNum] = useState(0);
-
-	const changeRef = () => {
-		console.log('changeRef called');
-		refEl.current = 1;
-	};
-
-	const changeState = () => {
-		console.log('changeState called');
-		setNum(Num + 1);
-	};
-
 	return (
 		<Layout title={'MEMBERS'}>
 			<article className='ceoBox'>
@@ -25,13 +11,20 @@ export default function Members() {
 					<h2>{memberData[0].name}</h2>
 					<p>{memberData[0].position}</p>
 				</div>
-				<Pic className='pic' src={'/' + memberData[0].pic} shadow />
+
+				<MaskBox style={{ width: '50%', height: '65vh' }} delay={2}>
+					<Pic className='pic' src={'/' + memberData[0].pic} shadow />
+				</MaskBox>
 			</article>
 
 			<article className='memberListBox'>
 				<div className='titBox'>
-					<h2 onClick={changeRef}>Our Team Members</h2>
-					<p onClick={changeState}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora possimus non ipsa cum. Veritatis, dolore aliquam? Consectetur assumenda dolor labore.</p>
+					<h2>Our Team Members</h2>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
+						possimus non ipsa cum. Veritatis, dolore aliquam? Consectetur
+						assumenda dolor labore.
+					</p>
 				</div>
 
 				<ul>
@@ -54,30 +47,13 @@ export default function Members() {
 				<div className='descBox'>
 					<h2>Lorem ipsum dolor sit.</h2>
 					<p>
-						Lorem ipsum, dolor sit amet consectetur adipisicing elit. A esse cupiditate, vitae deleniti repellat explicabo sit, corrupti beatae dicta, nulla optio corporis alias. Perferendis quidem
-						sapiente minima, quisquam inventore soluta.
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. A esse
+						cupiditate, vitae deleniti repellat explicabo sit, corrupti beatae
+						dicta, nulla optio corporis alias. Perferendis quidem sapiente
+						minima, quisquam inventore soluta.
 					</p>
 				</div>
 			</article>
 		</Layout>
 	);
 }
-
-/*
-	state
-	- 컴포넌트가 재랜더링 되더라도 값이 사라지지 않고 계속 유지 (이전값을 기억하면서 재활용가능)
-	- 해당 값이 변경되면 자동으로 컴포넌트가 재랜더링됨
-	- 사용예: JSX변화와 관련된 모든 값은 state에 담아줌.
-	- 사용예2:  서버데이터, 모달을 열기위한 불린값, 목록클릭시 젼경되어야 되는 순서값
-
-	useRef
-	- 컴포넌트가 재랜더링 되더라도 값이 사라지지 않고 계속 유지 (이전값을 기억하면서 재활용가능)
-	- 해당 값이 변경되더라도 컴포넌트를 재렌더링시키지 않음
-	- 사용예:  화면의 렌더링과 직접 연관은 없지만, 로직활용시 유지되어야 되는 값(예: 스크롤위치)
-	- 사용예2: 브라우저 리사이즈시 갱신되어야 하는 브러우저의 폭, 스크롤시 갱신해야 하는 현재 스크롤 위치값 등에 쓰이며, 모션할 때 굉장히 유용함
-
-컴포넌트함수가 재렌더링(재호출) 되더라도 useState와 useRef의 값을 기억할 수 있는 이유
-- 자바스크립트 lexical scope이 closure환경을 기반으로 하고 있기 때문  
-
-
-*/

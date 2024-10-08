@@ -39,5 +39,5 @@ export default function MaskText({ children, duration, delay, color, style }) {
 }
 
 //미션
-//maskBox.jsx라는 새로운 컴포넌트 생성
+//MaskBox.jsx라는 새로운 컴포넌트 생성
 //이미지나 그룹덩어리의 박스요소에 마스크 모션 처리
