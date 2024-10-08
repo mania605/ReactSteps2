@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Layout from '../common/Layout';
 import Pic from '../common/pic';
-import Modal from '../common/modal';
+import Modal from '../common/Modal';
 
 export default function Gallery() {
 	console.log('Gallery Component Rendered!!');
@@ -49,7 +49,11 @@ export default function Gallery() {
 									//각 이미지 목록 클릭시 클릭한 idx순번값을 Index상태값에 저장
 									setIndex(idx);
 								}}>
-								<Pic src={`https://live.staticflickr.com/${data.server}/${data.id}_${data.secret}_z.jpg`} className='pic' shadow />
+								<Pic
+									src={`https://live.staticflickr.com/${data.server}/${data.id}_${data.secret}_z.jpg`}
+									className='pic'
+									shadow
+								/>
 								<h3>{data.title}</h3>
 							</article>
 						);
