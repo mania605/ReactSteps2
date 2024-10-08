@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import Layout from '../common/Layout';
 import { useEffect, useState } from 'react';
-import useCombineText from '../../../hooks/useCombineText';
+import useCombineText from '../../hooks/useCombineText';
 
 export default function YoutubeDetail() {
 	const { id } = useParams();
@@ -22,11 +22,7 @@ export default function YoutubeDetail() {
 	return (
 		<Layout title={YoutubeVid?.snippet.title}>
 			<figure className='vidFrame'>
-				<iframe
-					width='100%'
-					height='100%'
-					title='youtube'
-					src={`https://www.youtube.com/embed/${YoutubeVid?.snippet.resourceId.videoId}`}></iframe>
+				<iframe width='100%' height='100%' title='youtube' src={`https://www.youtube.com/embed/${YoutubeVid?.snippet.resourceId.videoId}`}></iframe>
 			</figure>
 
 			<p>{YoutubeVid?.snippet.description}</p>
