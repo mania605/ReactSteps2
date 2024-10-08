@@ -15,7 +15,7 @@ export default function UseSplitText() {
 		let tags = ''; //빈문자열 초기화
 		for (let letter of text) {
 			//문자열 반복돌면서 동적으로 <span>요소로 감싸면서 문자열 쌓아나감
-			tags += '<span>${letter}</span>';
+			tags += `<span>${letter}</span>`;
 		}
 
 		ref.current.innerHTML = tags; //tag문자열이 완성되면 ref참조 요소 안쪽에 변경된 문자열 DOM구조 바꿔치기
