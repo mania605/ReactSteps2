@@ -4,6 +4,7 @@ import Pic from '../common/pic';
 import Modal from '../common/modal';
 
 export default function Gallery() {
+	console.log('Gallery Component Rendered!!');
 	const [Flickr, setFlickr] = useState([]);
 	console.log(Flickr); //1. 외부데이터를 담을 빈 State공간 상태값과 State변경함수를 useState로부터 생성- []로 빈그릇만 만들어 놓는 것
 	const [ModalOpen, setModalOpen] = useState(false); // 모달 표시 여부를 제어하는 상태
@@ -48,11 +49,7 @@ export default function Gallery() {
 									//각 이미지 목록 클릭시 클릭한 idx순번값을 Index상태값에 저장
 									setIndex(idx);
 								}}>
-								<Pic
-									src={`https://live.staticflickr.com/${data.server}/${data.id}_${data.secret}_z.jpg`}
-									className='pic'
-									shadow
-								/>
+								<Pic src={`https://live.staticflickr.com/${data.server}/${data.id}_${data.secret}_z.jpg`} className='pic' shadow />
 								<h3>{data.title}</h3>
 							</article>
 						);
