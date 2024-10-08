@@ -2,9 +2,11 @@ export default function useSplitText() {
 	return ref => {
 		let text = ref.current.innerText;
 		let tags = '';
+		let count = 0;
 
 		for (let letter of text) {
-			tags += `<span style='display:inline-block; transition-duration:0.5s;'>${letter}</span>`;
+			tags += `<span style='display:inline-block; transition-duration:0.5s; transition-delay:${count * interval}'>${letter}</span>`;
+			count++;
 		}
 
 		ref.current.innerHTML = tags;
@@ -24,4 +26,11 @@ export default function useSplitText() {
   동기화 시점이 innerHTML로 동적 요소를 넣는 호출 시점일 뿐
   실제 동적으로 DOM이 최종 생성된 시점 이후를 보장하진 않기 때문에
   물리적으로 실제 돔으로 변환될 약간의 시간을 확보하기 위함
+
+
+
+  동기화:이전작업 끝나고 다음게 진행됨
+  비동기화: 작업순서가 어그러지는 것
+  비동기화가 일어나는 이유 영상 볼 것
+
 */
