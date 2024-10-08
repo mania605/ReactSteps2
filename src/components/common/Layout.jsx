@@ -3,6 +3,7 @@ import useSplitText from '../../hooks/useSplitText';
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import MaskText from './MaskText';
+import MaskBox from './MaskBox';
 
 export default function Layout({ title, children }) {
 	const ref_title = useRef(null);
@@ -30,6 +31,26 @@ export default function Layout({ title, children }) {
 				style={{ marginTop: 50, fontSize: 80, fontFamily: 'raleway' }}>
 				Lorem ipsum dolor
 			</MaskText>
+
+			<h1 ref={ref_title}>{title}</h1>
+
+			<MaskBox
+				duration={1}
+				delay={0}
+				maskColor={'#000'}
+				style={{ width: '300px', height: '300px' }}>
+				<img src='https://via.placeholder.com/300' alt='Masked Image' />
+			</MaskBox>
+
+			<MaskBox
+				duration={1.5}
+				delay={0.5}
+				maskColor={'#333'}
+				style={{ width: '100%', height: '200px', backgroundColor: '#f4f4f4' }}>
+				<div style={{ padding: '20px' }}>
+					Masked Content with Background Color
+				</div>
+			</MaskBox>
 
 			<motion.section
 				initial={{ opacity: 0, y: 200 }}
